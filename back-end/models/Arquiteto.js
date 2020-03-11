@@ -1,29 +1,35 @@
 const mongoose = require('mongoose');
 
 const esquema = mongoose.Schema({
-    nome:{
-        type: String, 
+    nome: {
+        type: String,
         require: true
-    }, 
+    },
 
     cpf:{
         type: String,
         require: true
     },
-        
-    endereco:{
+
+    cau:{
         type: String,
         require: true
     },
 
-    telefone:{
+    telefone: {
         type: String,
         require: true
+    },
+
+    endereco:{
+        type: String,
+        require:true
     },
 
     email:{
-        type: String
-    }     
+        type: String,
+        require: true
+    }
 });
 
-module.exports = mongoose.Schema('ClientePf', esquema, 'clientePf');
+module.exports = mongoose.Schema('Arquiteto', esquema, 'arquiteto');
