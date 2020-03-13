@@ -21,6 +21,18 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 const fornecedor = require('./routes/fornecedor');
-app.use('/fornecedor', fornecedor)
+app.use('/fornecedor', fornecedor);
+
+const clientePf = require('./routes/clientePf');
+app.use('/clientePf', clientePf);
+
+const clientePj = require('./routes/clientePj');
+app.use('/clientePj', clientePj);
+
+const arquiteto = require('./routes/arquiteto');
+app.use('/arquiteto', arquiteto);
+
+const engenheiro = require('./routes/engenheiro');
+app.use('/engenheiro', engenheiro);
 
 module.exports = app;
