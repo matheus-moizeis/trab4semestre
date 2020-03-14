@@ -32,4 +32,4 @@ const esquema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.Schema('Arquiteto', esquema, 'arquiteto');
+module.exports = mongoose.model('Arquiteto', esquema, 'arquitetos');

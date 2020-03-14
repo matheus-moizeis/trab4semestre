@@ -26,4 +26,4 @@ const esquema = mongoose.Schema({
    }
 });
 
-module.exports = mongoose.model('ClientePj', esquema, 'clientePj');
+module.exports = mongoose.model('ClientePj', esquema, 'clientesPj');

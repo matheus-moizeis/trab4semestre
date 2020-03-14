@@ -32,4 +32,4 @@ const esquema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.Schema('Engenheiro', esquema, 'engenheiro');
+module.exports = mongoose.model('Engenheiro', esquema, 'engenheiros');
