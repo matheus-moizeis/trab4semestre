@@ -35,4 +35,10 @@ app.use('/arquiteto', arquiteto);
 const engenheiro = require('./routes/engenheiro');
 app.use('/engenheiro', engenheiro);
 
+const projeto = require('./routes/projeto');
+app.use('/projeto', projeto);
+
+const contrucao = require('./routes/construcao');
+app.use('/construcao', contrucao)
+
 module.exports = app;
