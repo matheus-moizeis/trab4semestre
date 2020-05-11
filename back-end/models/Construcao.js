@@ -1,10 +1,31 @@
 const mongoose = require('mongoose')
 
 const esquema = mongoose.Schema({
+    
+    data_construcao: {
+        type: Date, // Date armezana data e hora
+        required: true,
+    },
+
+    forma_construcao: {
+        type: String,
+        // DI = dinheiro
+        // CH = cheque
+        // CC = cartão de crédito
+        // CD = cartão de débito
+        enum: ['DI', 'CH', 'CC', 'CD'],
+        required: true
+    },
+    
+    num_construcao: {
+        type: Number,
+        index: { unique: true } // Número da venda não pode se repetir
+    },
+
     valor_construcao: {
         type: Number,
         require: true,
-        min: 0
+        min: 1
     },
 
     tamanho_terreno: {

@@ -1,1 +1,0 @@
-Trabalho para aula Programação Script, realizado no 4 semestre
