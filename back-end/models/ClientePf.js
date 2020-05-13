@@ -3,26 +3,30 @@ const mongoose = require('mongoose');
 const esquema = mongoose.Schema({
     nome:{
         type: String, 
-        require: true
+        required: true
     }, 
 
     cpf:{
         type: String,
-        require: true
+        index: { 
+            unique: true
+         },
+        required: true
     },
         
     endereco:{
         type: String,
-        require: true
+        required: true
     },
 
     telefone:{
         type: String,
-        require: true
+        required: true
     },
 
     email:{
-        type: String
+        type: String,
+        required: true
     }     
 });
 

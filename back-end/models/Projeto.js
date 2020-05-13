@@ -1,10 +1,12 @@
 const mongoose = require('mongoose')
 
+const mongooseSeq = require('mongoose-sequence')(mongoose);
+
 const esquema = mongoose.Schema({
     data_projeto: {
         type: Date, // Date armezana data e hora,
         default: Date.now,
-        require: true
+        required: true
     },
 
     forma_pagamento: {
@@ -16,7 +18,7 @@ const esquema = mongoose.Schema({
         enum: ['DI', 'CH', 'CC', 'CD'],
         required: true
     },
-    
+
     num_projeto: {
         type: Number,
         index: { unique: true } // Número da venda não pode se repetir
@@ -24,13 +26,13 @@ const esquema = mongoose.Schema({
 
     valor_projeto: {
         type: Number,
-        require: true,
+        required: true,
         min: 1
     },
 
     tamanho_terreno: {
         type: String,
-        require: true,
+        required: true,
         validate:{
             validator: function(val){
                 return val>0
@@ -41,7 +43,7 @@ const esquema = mongoose.Schema({
 
     tamanho_projeto: {
         type: String,
-        require: true,
+        required: true,
         validate:{
             validator: function(val){
                 return val>0
@@ -63,7 +65,14 @@ const esquema = mongoose.Schema({
     clientePj: {
         type: mongoose.ObjectId,
         ref: 'ClientePj'
+    },
+
+    orcamento:{
+        type: Boolean,
+        required: true
     }
 })
+
+esquema.plugin(mongooseSeq, {inc_field: 'num_projeto', start_seq: 1}),
 
 module.exports = mongoose.model('Projeto', esquema, 'projetos')

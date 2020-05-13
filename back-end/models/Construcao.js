@@ -1,13 +1,17 @@
 const mongoose = require('mongoose')
 
+const mongooseSeq = require('mongoose-sequence')(mongoose);
+
+
 const esquema = mongoose.Schema({
     
     data_construcao: {
-        type: Date, // Date armezana data e hora
+        type: Date,
+        default: Date.now,
         required: true,
     },
 
-    forma_construcao: {
+    forma_pagamento: {
         type: String,
         // DI = dinheiro
         // CH = cheque
@@ -30,12 +34,12 @@ const esquema = mongoose.Schema({
 
     tamanho_terreno: {
         type: String,
-        require: true
+        required: true
     },
 
     tamanho_construcao: {
         type: String,
-        require: true
+        required: true
     },
 
     arquiteto: {
@@ -67,7 +71,14 @@ const esquema = mongoose.Schema({
     clientePj: {
         type: mongoose.ObjectId,
         ref: 'ClientePj'
+    },
+
+    orcamento:{
+        type: Boolean,
+        required: true
     }
 })
+
+esquema.plugin(mongooseSeq, {inc_field: 'num_construcao', start_seq: 1}),
 
 module.exports = mongoose.model('Construcao', esquema, 'construcoes')

@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const esquema = mongoose.Schema({
    razao_social: {
       type: String,
-      required: true // Atributo obrigatório
+      required: true
    },
    nome_fantasia: {
       type: String
