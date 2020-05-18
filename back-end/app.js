@@ -23,11 +23,8 @@ app.use('/users', usersRouter);
 const fornecedor = require('./routes/fornecedor');
 app.use('/fornecedor', fornecedor);
 
-const clientePf = require('./routes/clientePf');
-app.use('/clientePf', clientePf);
-
-const clientePj = require('./routes/clientePj');
-app.use('/clientePj', clientePj);
+const cliente = require('./routes/cliente');
+app.use('/cliente', cliente);
 
 const arquiteto = require('./routes/arquiteto');
 app.use('/arquiteto', arquiteto);

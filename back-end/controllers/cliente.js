@@ -1,10 +1,10 @@
-const ClientePj = require('../models/ClientePj');
+const Cliente = require('../models/Cliente');
 
 const controller = {} // Objeto vazio
 
 controller.novo = async (req, res) => {
    try {
-      await ClientePj.create(req.body)
+      await Cliente.create(req.body)
       // HTTP status 201: Created (criado)
       res.status(201).end()
    }
@@ -25,7 +25,7 @@ controller.listar = async (req, res) => {
    
       try {
          // find() sem parâmetros: retorna todos
-         const lista = await ClientePj.find()
+         const lista = await Cliente.find()
          res.send(lista) // O status HTTP 200 (OK) é implícito
       }
       catch(erro) {
@@ -38,7 +38,7 @@ controller.listar = async (req, res) => {
 controller.obterUm = async (req, res) => {
    try {
       const id = req.params.id
-      const obj = await ClientePj.findById(id)
+      const obj = await Cliente.findById(id)
       if(obj) { // obj foi encontrado
          res.send(obj) // HTTP 200
       }
@@ -56,7 +56,7 @@ controller.obterUm = async (req, res) => {
 controller.atualizar = async (req, res) => {
    try {
       const id = req.body._id
-      const obj = await ClientePj.findByIdAndUpdate(id, req.body)
+      const obj = await Cliente.findByIdAndUpdate(id, req.body)
       if(obj) { // obj foi encontrado e atualizado 
          // HTTP 204: No content
          res.status(204).end()
@@ -74,7 +74,7 @@ controller.atualizar = async (req, res) => {
 controller.excluir = async (req, res) => {
    try {
       const id = req.body._id
-      const obj = await ClientePj.findByIdAndDelete(id)
+      const obj = await Cliente.findByIdAndDelete(id)
       if(obj) {
          res.status(204).end()
       }
@@ -100,7 +100,7 @@ async function busca (req, res) {
    console.log(criterio)
    
    try{
-      let lista = await ClientePj.find(criterio)
+      let lista = await Cliente.find(criterio)
       res.send(lista)
    }
    catch(erro) {

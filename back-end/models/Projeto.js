@@ -57,16 +57,10 @@ const esquema = mongoose.Schema({
         ref: 'Arquiteto'
     },
 
-    clientePf: {
+    cliente: {
         type: mongoose.ObjectId,
-        ref: 'ClientePf'
+        ref: 'Cliente',
     },
-    
-    clientePj: {
-        type: mongoose.ObjectId,
-        ref: 'ClientePj'
-    },
-
     orcamento:{
         type: Boolean,
         required: true

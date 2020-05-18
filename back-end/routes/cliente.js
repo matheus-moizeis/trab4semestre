@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const controller = require('../controllers/clientePf')
+const controller = require('../controllers/cliente')
 
 router.post('/', controller.novo)
 router.get('/', controller.listar)

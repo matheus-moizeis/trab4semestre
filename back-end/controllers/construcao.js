@@ -25,7 +25,7 @@ controller.listar = async (req, res) => {
    
       try {
          // find() sem parâmetros: retorna todos
-         const lista = await Construcao.find().populate('clientePf',) // 'arquiteto', 'engenheiro', 'fornecedores', 'clientePj' 
+         const lista = await Construcao.find().populate('cliente',) // 'arquiteto', 'engenheiro', 'fornecedores', 'clientePj' 
          res.send(lista) // O status HTTP 200 (OK) é implícito
       }
       catch(erro) {

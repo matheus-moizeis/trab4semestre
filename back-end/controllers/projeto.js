@@ -25,7 +25,7 @@ controller.listar = async (req, res) => {
    
       try {
          // find() sem parâmetros: retorna todos
-         const lista = await Projeto.find().populate('clientePf') 
+         const lista = await Projeto.find().populate('cliente') 
          res.send(lista) // O status HTTP 200 (OK) é implícito
       }
       catch(erro) {
